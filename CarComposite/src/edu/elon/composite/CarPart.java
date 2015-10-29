@@ -11,15 +11,17 @@ public class CarPart extends CarComponent {
 		this.price = price;
 	}
 	
+	
+	
 	public String getName(){
-		return null;
+		return partName;
 	}
 	
 	public double getPrice(){
-		return 0.0;
+		return price;
 	}
 	
 	public void print(){
-		
+		String part = partName + ":" + description + "         " + price;
 	}
 }
