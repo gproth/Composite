@@ -9,9 +9,7 @@ public class Car extends CarComposite{
 	String description;
 	double price;
 	ArrayList<CarMenu> options;
-	CarMenu colors;
-	CarMenu interior;
-	CarMenu exterior;
+	
 	
 	public Car(String name, String description, double price){
 		model = name;
@@ -33,17 +31,17 @@ public class Car extends CarComposite{
 	}
 	
 	public double getPrice(){
-		double total = 0;
+		double total = 0.0;
 		for(CarMenu item: options){
-			total = item.getPrice();
+			total = total + item.getPrice();
 		}
 		return total;
 	}
 	
 	public void print(){
+		System.out.println(model +"     " + description + "         " + price);
 		Iterator iterator = options.iterator();
 		while(iterator.hasNext()){
-			
 			CarMenu menu = (CarMenu) iterator.next();
 			menu.print();
 		}

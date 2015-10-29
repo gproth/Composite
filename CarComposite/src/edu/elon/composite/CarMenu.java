@@ -1,6 +1,7 @@
 package edu.elon.composite;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class CarMenu extends CarComponent{
 	
@@ -28,10 +29,18 @@ public class CarMenu extends CarComponent{
 	}
 	
 	public double getPrice(){
-		return price;
+		double total = 0.0;
+		for(CarComponent item: choices){
+			total = total + item.getPrice();
+		}
+		return total;
 	}
 	
 	public void print(){
-		String part = partName + ":" + description + "         " + price;
+		Iterator iterator = choices.iterator();
+		while(iterator.hasNext()){
+			CarMenu menu = (CarMenu) iterator.next();
+			menu.print();
+		}
 	}
 }
