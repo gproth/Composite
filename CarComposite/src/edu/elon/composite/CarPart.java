@@ -22,6 +22,7 @@ public class CarPart extends CarComponent {
 	}
 	
 	public void print(){
-		String part = partName + ":" + description + "         " + price;
+		String part = partName + "" + description + "         $" + price;
+		System.out.println(part);
 	}
 }

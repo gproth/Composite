@@ -8,19 +8,17 @@ public class CarMenu extends CarComponent{
 	ArrayList<CarComponent> choices;
 	private String partName;
 	private String description;
-	private double price;
 	
-	public CarMenu(String name, String description, double price){
+	public CarMenu(String name, String description){
 		partName = name;
 		this.description = description;
-		this.price = price;
 		choices = new ArrayList<CarComponent>();
 	}
-	public void add(CarMenu c){
+	public void add(CarComponent c){
 		choices.add(c);
 	}
 	
-	public void remove(CarMenu c){
+	public void remove(CarComponent c){
 		choices.remove(c);
 	}
 	 
@@ -37,9 +35,10 @@ public class CarMenu extends CarComponent{
 	}
 	
 	public void print(){
-		Iterator iterator = choices.iterator();
+		System.out.println(partName);
+		Iterator<CarComponent> iterator = choices.iterator();
 		while(iterator.hasNext()){
-			CarMenu menu = (CarMenu) iterator.next();
+			CarComponent menu = (CarComponent) iterator.next();
 			menu.print();
 		}
 	}
